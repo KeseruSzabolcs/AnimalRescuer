@@ -1,11 +1,13 @@
 package org.FasttrackIT;
 
-import java.util.Date;
+
+import java.text.SimpleDateFormat;
 
 public class Food {
-    private String name;
-    private Double price;
-    private Double quantity;
-    private Date ExpirationDate;
-    private int InStoc;
+    String name;
+    Double price;
+    Double quantity;
+    //java.time.LocalDateTime expirationDate;
+    //Error:(8, 14) java: package java.time does not exist
+    int InStoc;
 }

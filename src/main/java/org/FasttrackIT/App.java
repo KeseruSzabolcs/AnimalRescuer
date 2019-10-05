@@ -22,7 +22,7 @@ public class App {
         adaptor.moneyAvaliable = 29.4;
 
         Food food = new Food();
-        food.InStoc = 6;
+        food.inStoc = 6;
         food.name = "Pedigree";
         food.price = 4.0;
         food.quantity = 20.0;
@@ -32,18 +32,36 @@ public class App {
         medic.occupation = "Vet";
 
         Activities activities = new Activities();
-        activities.ActivityName = "Ball game";
+        activities.name = "Ball game";
 
         Game game = new Game();
         game.adaptor = adaptor;
         //game.
 
-
-//        System.out.println("It's name is: " + animal1.name);
-//        System.out.println("It's age is: " + animal1.age);
-//        System.out.println("It's preferred game is: " + animal1.preferredGame);
-//        System.out.println("It's preferred food is: " + animal1.preferredFood);
-//
-
+        System.out.println("Information about animal: ");
+        System.out.print("It's name is: ");
+        animal1.print();
+        System.out.println("It's age is: " + animal1.age);
+        System.out.println("It's preferred game is: " + animal1.preferredGame);
+        System.out.println("It's preferred food is: " + animal1.preferredFood);
+        System.out.println("--------------");
+        System.out.println("Information about adaptor");
+        System.out.print("Hi's name is: ");
+        adaptor.print();
+        System.out.println("Hi's money: " + adaptor.moneyAvaliable);
+        System.out.println("--------------");
+        System.out.println("Information about dog food: ");
+        System.out.print("It's name is: ");
+        food.print();
+        System.out.println("Has in stock " + food.inStoc);
+        System.out.println("It's price is " + food.price);
+        System.out.println("Quantity in the marker: " + food.quantity);
+        System.out.println("--------------");
+        System.out.print("Information about the medic: ");
+        medic.print();
+        System.out.println("His occupation is: " + medic.occupation);
+        System.out.println("--------------");
+        System.out.print("Favorite activities: ");
+        activities.print();
     }
 }

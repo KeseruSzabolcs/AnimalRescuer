@@ -2,9 +2,9 @@ package org.FasttrackIT;
 
 import java.sql.SQLOutput;
 
-public class Animal {
+public class Animal extends  Activities{
 
-     String name;
+     //String name;
      int age;
      int health;
      int hunger;

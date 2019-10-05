@@ -1,5 +1,9 @@
 package org.FasttrackIT;
 
 public class Activities {
-     String ActivityName;
+    String name;
+
+    public void print() {
+        System.out.println(name);
+    }
 }

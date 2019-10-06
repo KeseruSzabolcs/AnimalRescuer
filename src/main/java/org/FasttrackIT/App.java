@@ -65,5 +65,8 @@ public class App {
 
         adaptor.feed(food, animal1);
         adaptor.acctivity(activities, animal1);
+        System.out.println("---------------");
+        medic.feed(food, animal1);
+        medic.acctivity(food, animal1);
     }
 }

@@ -16,9 +16,18 @@ public class Activities {
     }
 
     public void print() {
-    System.out.println(name);
-}
+        System.out.println(name);
+    }
 
+    public void feed(Food food, Animal animal){
+        System.out.println(getName() + " just gave " + food.getName() + " to " + animal.getName());
+        animal.setHappyness(animal.getHappyness()-2);
+        System.out.println("Animal happyneSS level " + animal.getHappyness());
+    }
 
-
+    public void acctivity(Activities activities, Animal animal){
+        System.out.println(getName() + " is playing " + activities.getName() + " with " + animal.getName());
+        animal.setHappyness(animal.getHappyness()+2);
+        System.out.println("Animal happyneSS level " + animal.getHappyness());
+    }
 }

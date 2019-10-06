@@ -1,7 +1,15 @@
 package org.FasttrackIT;
 
 public class Activities {
-    String name;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Activities(String name) {
         this.name = name;
@@ -10,5 +18,7 @@ public class Activities {
     public void print() {
     System.out.println(name);
 }
+
+
 
 }

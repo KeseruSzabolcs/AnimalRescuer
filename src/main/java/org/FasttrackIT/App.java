@@ -1,38 +1,38 @@
 package org.FasttrackIT;
 
 
-import java.util.Scanner;
 
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        Animal animal1 = new Animal();
-        animal1.name = "Leno";
-        animal1.age = 14;
-        animal1.hunger = 10;
-        animal1.health = 10;
-        animal1.happyness = 10;
-        animal1.preferredFood = "Dog Food";
-        animal1.preferredGame = "Ball game";
 
-        Adaptor adaptor = new Adaptor();
-        adaptor.name = "John";
-        adaptor.moneyAvaliable = 29.4;
+        Activities activities = new Activities("ball game");
+        //activities.name = "Ball game";
 
-        Food food = new Food();
-        food.inStoc = 6;
-        food.name = "Pedigree";
-        food.price = 4.0;
-        food.quantity = 20.0;
+        Animal animal1 = new Animal("LenoX", 10, 10, 10, 10, "Dog Food", "Ball Game");
+//        animal1.name = "Leno";
+//        animal1.age = 14;
+//        animal1.hunger = 10;
+//        animal1.health = 10;
+//        animal1.happyness = 10;
+//        animal1.preferredFood = "Dog Food";
+//        animal1.preferredGame = "Ball game";
 
-        Medic medic = new Medic();
-        medic.name = "Dr Strange";
-        medic.occupation = "Vet";
+        Adaptor adaptor = new Adaptor("JohnX", 29.4);
+        //adaptor.name = "John";
+        //adaptor.moneyAvaliable = 29.4;
 
-        Activities activities = new Activities();
-        activities.name = "Ball game";
+        Food food = new Food("PedigreeX", 6.0, 10.0, 20);
+//        food.inStoc = 6;
+//        food.name = "Pedigree";
+//        food.price = 4.0;
+//        food.quantity = 20.0;
+
+        Medic medic = new Medic("Dr Strange", "Vet");
+        //medic.name = "Dr Strange";
+        //medic.occupation = "Vet";
 
         Game game = new Game();
         game.adaptor = adaptor;

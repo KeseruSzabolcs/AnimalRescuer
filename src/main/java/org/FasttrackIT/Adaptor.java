@@ -16,4 +16,16 @@ public class Adaptor extends Activities{
           super(name);
           this.moneyAvaliable = moneyAvaliable;
      }
+
+     public void feed(Food food, Animal animal){
+          System.out.println(getName() + " just gave " + food.getName() + " to " + animal.getName());
+          animal.setHappyness(animal.getHappyness()-1);
+          System.out.println("Animal happyness level " + animal.getHappyness());
+     }
+
+     public void acctivity(Activities activities, Animal animal){
+          System.out.println(getName() + " is playing " + activities.getName() + " with " + animal.getName());
+          animal.setHappyness(animal.getHappyness()+1);
+          System.out.println("Animal happyness level " + animal.getHappyness());
+     }
 }

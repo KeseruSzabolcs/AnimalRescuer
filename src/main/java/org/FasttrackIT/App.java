@@ -11,7 +11,7 @@ public class App {
         Activities activities = new Activities("ball game");
         //activities.name = "Ball game";
 
-        Animal animal1 = new Animal("LenoXz", 10, 10, 10, 10, "Dog Food", "Ball Game");
+        Animal animal1 = new Animal("Leno", 10, 10, 10, 10, "Dog Food", "Ball Game");
         //animal1.setName("Leno");
 //        animal1.age = 14;
 //        animal1.hunger = 10;
@@ -20,11 +20,11 @@ public class App {
 //        animal1.preferredFood = "Dog Food";
 //        animal1.preferredGame = "Ball game";
 
-        Adaptor adaptor = new Adaptor("JohnX", 29.4);
+        Adaptor adaptor = new Adaptor("John", 29.4);
         //adaptor.name = "John";
         //adaptor.moneyAvaliable = 29.4;
 
-        Food food = new Food("PedigreeX", 6.0, 10.0, 20);
+        Food food = new Food("Pedigree", 6.0, 10.0, 20);
 //        food.inStoc = 6;
 //        food.name = "Pedigree";
 //        food.price = 4.0;
@@ -37,7 +37,6 @@ public class App {
         Game game = new Game();
         game.adaptor = adaptor;
         //game.
-
         System.out.println("Information about animal: ");
         System.out.print("It's name is: ");
         animal1.print();
@@ -63,5 +62,8 @@ public class App {
         System.out.println("--------------");
         System.out.print("Favorite activities: ");
         activities.print();
+
+        adaptor.feed(food, animal1);
+        adaptor.acctivity(activities, animal1);
     }
 }

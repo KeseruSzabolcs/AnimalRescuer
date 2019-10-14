@@ -27,7 +27,7 @@ public class Activities {
 
     public void acctivity(Activities activities, Animal animal){
         System.out.println(getName() + " is playing " + activities.getName() + " with " + animal.getName());
-        animal.setHappyness(animal.getHappyness()+2);
+        animal.setHappyness(animal.getHappyness()+3);
         System.out.println("Animal happyneSS level " + animal.getHappyness());
     }
 }

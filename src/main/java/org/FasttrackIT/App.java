@@ -1,6 +1,7 @@
 package org.FasttrackIT;
 
 
+import java.time.LocalDate;
 
 /**
  * Hello world!
@@ -24,12 +25,11 @@ public class App {
         //adaptor.name = "John";
         //adaptor.moneyAvaliable = 29.4;
 
-        Food food = new Food("Pedigree", 6.0, 10.0, 20);
+        Food food = new Food("Pedigree", 6.0, 10.0, LocalDate.of(2019, 07, 12), 10);
 //        food.inStoc = 6;
 //        food.name = "Pedigree";
 //        food.price = 4.0;
 //        food.quantity = 20.0;
-
         Medic medic = new Medic("Dr Strange", "Vet");
         //medic.name = "Dr Strange";
         //medic.occupation = "Vet";
@@ -54,6 +54,7 @@ public class App {
         food.print();
         System.out.println("Has in stock " + food.getInStoc());
         System.out.println("It's price is " + food.getPrice());
+        System.out.println("It will expire in " + food.getExpirationDate());
         System.out.println("Quantity in the marker: " + food.getQuantity());
         System.out.println("--------------");
         System.out.print("Information about the medic: ");

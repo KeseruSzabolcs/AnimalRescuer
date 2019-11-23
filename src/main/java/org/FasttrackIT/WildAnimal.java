@@ -14,6 +14,8 @@ public class WildAnimal extends Animal{
     public WildAnimal(String name, int age, int health, int hunger, int happyness, String preferredFood, String preferredGame, String adoptable) {
         super(name, age, health, hunger, happyness, preferredFood, preferredGame);
     }
+
+    @Override
     public void print() {
         System.out.println("Even I can be adopted, my name is: " + getName());
     }

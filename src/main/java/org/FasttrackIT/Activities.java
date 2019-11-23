@@ -22,10 +22,11 @@ public class Activities {
     public void feed(Food food, Animal animal){
         System.out.println(getName() + " just gave " + food.getName() + " to " + animal.getName());
         animal.setHappyness(animal.getHappyness()-2);
-        System.out.println("Animal happiness level " + animal.getHappyness());
         if (food.getName().equals(animal.getPreferredFood())){
             animal.setHappyness(animal.getHappyness()+1);
             System.out.println("I just got my preferred food!!! Happiness level: " + animal.getHappyness());
+        } else {
+            System.out.println("Animal happiness level " + animal.getHappyness());
         }
     }
 

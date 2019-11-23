@@ -2,9 +2,9 @@ package org.FasttrackIT;
 
 import java.sql.SQLOutput;
 
-public class Animal extends Activities {
+public class Animal {
 
-    //String name;
+    private String name;
     private int age;
     private int health;
     private int hunger;
@@ -60,13 +60,25 @@ public class Animal extends Activities {
         this.preferredGame = preferredGame;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Animal(String name, int age, int health, int hunger, int happyness, String preferredFood, String preferredGame) {
-        super(name);
+        this.name = name;
         this.age = age;
         this.health = health;
         this.hunger = hunger;
         this.happyness = happyness;
         this.preferredFood = preferredFood;
         this.preferredGame = preferredGame;
+    }
+
+    public void print() {
+        System.out.println(name);
     }
 }

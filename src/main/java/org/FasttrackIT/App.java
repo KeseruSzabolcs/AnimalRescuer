@@ -17,15 +17,16 @@ public class App {
 //        animal1.age = 14;
 //        animal1.hunger = 10;
 //        animal1.health = 10;
-//        animal1.happyness = 10;
+//        animal1.happiness = 10;
 //        animal1.preferredFood = "Dog Food";
 //        animal1.preferredGame = "Ball game";
+        Animal animalWolf = new WildAnimal("Lord", 2, 10, 10, 10, "Wolf Food", "Stick Game", "Yes");
 
         Adaptor adaptor = new Adaptor("John", 29.4);
         //adaptor.name = "John";
         //adaptor.moneyAvaliable = 29.4;
 
-        Food food = new Food("Pedigree", 6.0, 10.0, LocalDate.of(2019, 07, 12), 10);
+        Food food = new Food("Dog Food", 6.0, 10.0, LocalDate.of(2019, 07, 12), 10);
 //        food.inStoc = 6;
 //        food.name = "Pedigree";
 //        food.price = 4.0;
@@ -66,8 +67,10 @@ public class App {
 
         adaptor.feed(food, animal1);
         adaptor.acctivity(activities, animal1);
-        System.out.println("---------------");
+        System.out.println("----++++++------");
         medic.feed(food, animal1);
-        medic.acctivity(food, animal1);
+        medic.acctivity(activities, animal1);
+        System.out.println("////////////");
+        animalWolf.print();
     }
 }

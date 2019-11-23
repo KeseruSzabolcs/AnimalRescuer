@@ -7,9 +7,8 @@ public class Food extends Activities {
     //String name;
     private Double price;
     private Double quantity;
-    private LocalDate expirationDate;
     private int inStoc;
-
+    private LocalDate expirationDate;
     public Food(String name, Double price, Double quantity, LocalDate expirationDate, int inStoc) {
         super(name);
         this.price = price;

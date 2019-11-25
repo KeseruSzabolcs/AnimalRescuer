@@ -9,9 +9,9 @@ import java.time.LocalDate;
 public class App {
     public static void main(String[] args) {
 
-        Activities activities = new Activities("Ball game");
+        Activities activities = new Activities("Ball Game");
         Activities activities2 = new Activities("Stick game");
-        Activities activities3 = new Activities("Imaginary game");
+        Activities activities3 = new Activities(" game");
         //activities.name = "Ball game";
 
         Animal animal1 = new Animal("Leno", 10, 10, 10, 10, "Dog Food", "Ball Game");
@@ -73,21 +73,21 @@ public class App {
         adaptor.feed(food, animal1);
         adaptor.acctivity(activities, animal1);
         System.out.println("----++++++------");
-        medic.feed(food, animal1);
-        medic.acctivity(activities, animal1);
+        //medic.feed(food, animal1);
+        //medic.acctivity(activities, animal1);
         System.out.println("////////////");
         animalWolf.print();
         adaptor.feed(food2, animalWolf);
         adaptor.acctivity(activities2, animalWolf);
         System.out.println("----++++++------");
-        medic.feed(food2, animalWolf);
-        medic.acctivity(activities2, animalWolf);
+        //medic.feed(food2, animalWolf);
+        //medic.acctivity(activities2, animalWolf);
         System.out.println("||||||||||||||||||||");
         fictional.print();
         adaptor.feed(food3, fictional);
         adaptor.acctivity(activities3, fictional);
         System.out.println("----++++++------");
-        medic.feed(food3, fictional);
-        medic.acctivity(activities3, fictional);
+        //medic.feed(food3, fictional);
+        //medic.acctivity(activities3, fictional);
     }
 }

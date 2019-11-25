@@ -20,7 +20,11 @@ public class Adaptor extends Activities{
      @Override
      public void feed(Food food, Animal animal){
           System.out.println(getName() + " just gave " + food.getName() + " to " + animal.getName());
-          animal.setHappyness(animal.getHappyness()-1);
+          if(animal.getPreferredFood().equals(food.getName())){
+              animal.setHappyness(animal.getHappyness()+1);
+          }else {
+              animal.setHappyness(animal.getHappyness() - 1);
+          }
           System.out.println("Animal happyness level " + animal.getHappyness());
 
      }
@@ -28,7 +32,11 @@ public class Adaptor extends Activities{
      @Override
      public void acctivity(Activities activities, Animal animal){
           System.out.println(getName() + " is playing " + activities.getName() + " with " + animal.getName());
-          animal.setHappyness(animal.getHappyness()+1);
+          if(animal.getPreferredGame().equals(activities.getName())){
+              animal.setHappyness(animal.getHappyness()+2);
+          }else {
+              animal.setHappyness(animal.getHappyness() + 1);
+          }
           System.out.println("Animal happyness level " + animal.getHappyness());
      }
 }

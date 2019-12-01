@@ -3,18 +3,26 @@ package org.FasttrackIT;
 
 import java.time.LocalDate;
 
-public class Food extends Activities {
-    //String name;
+public class Food {
+    private String name;
     private Double price;
     private Double quantity;
     private int inStoc;
     private LocalDate expirationDate;
     public Food(String name, Double price, Double quantity, LocalDate expirationDate, int inStoc) {
-        super(name);
+        this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.expirationDate = expirationDate;
         this.inStoc = inStoc;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Double getPrice() {
@@ -47,5 +55,9 @@ public class Food extends Activities {
 
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public void print() {
+        System.out.println(getName());
     }
 }

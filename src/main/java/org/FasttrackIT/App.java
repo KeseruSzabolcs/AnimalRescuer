@@ -22,8 +22,8 @@ public class App {
 //        animal1.happiness = 10;
 //        animal1.preferredFood = "Dog Food";
 //        animal1.preferredGame = "Ball game";
-        Animal animalWolf = new WildAnimal("Lord", 2, 10, 10, 10, "Wolf Food", "Stick game", "Yes");
-        Animal fictional = new FictionalAnimal("Nemo", 2, 10, 10, 10, "Imaginary Food", "Imaginary game");
+        Animal animalWolf = new WildAnimal("Lord", 2, 10, 10, 10, "Wolf Food", "Stick game", true);
+        Animal fictional = new FictionalAnimal("Nemo", 2, 10, 10, 10, "Imaginary Food", "Imaginary game", false);
 
         Adaptor adaptor = new Adaptor("John", 29.4);
         //adaptor.name = "John";
@@ -41,7 +41,6 @@ public class App {
         //medic.occupation = "Vet";
 
         Game game = new Game();
-        game.adaptor = adaptor;
         //game.
         System.out.println("Information about animal: ");
         System.out.print("It's name is: ");
@@ -89,5 +88,6 @@ public class App {
         System.out.println("----++++++------");
         //medic.feed(food3, fictional);
         //medic.acctivity(activities3, fictional);
+
     }
 }

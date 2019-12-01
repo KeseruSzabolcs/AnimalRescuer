@@ -1,8 +1,17 @@
 package org.FasttrackIT;
 
-public class Medic extends Activities{
-     //String name;
-     private String  occupation;
+public class Medic {
+    //String name;
+    private String name;
+    private String occupation;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getOccupation() {
         return occupation;
@@ -13,7 +22,11 @@ public class Medic extends Activities{
     }
 
     public Medic(String name, String occupation) {
-        super(name);
+        this.name = name;
         this.occupation = occupation;
+    }
+
+    public void print() {
+        System.out.println(getName());
     }
 }

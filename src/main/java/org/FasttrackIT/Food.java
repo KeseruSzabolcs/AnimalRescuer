@@ -60,4 +60,15 @@ public class Food {
     public void print() {
         System.out.println(getName());
     }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", inStoc=" + inStoc +
+                ", expirationDate=" + expirationDate +
+                '}';
+    }
 }

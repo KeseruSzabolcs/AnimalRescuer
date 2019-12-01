@@ -40,8 +40,6 @@ public class App {
         //medic.name = "Dr Strange";
         //medic.occupation = "Vet";
 
-        Game game = new Game();
-        //game.
         System.out.println("Information about animal: ");
         System.out.print("It's name is: ");
         animal1.print();
@@ -88,6 +86,7 @@ public class App {
         System.out.println("----++++++------");
         //medic.feed(food3, fictional);
         //medic.acctivity(activities3, fictional);
-
+        Game game = new Game();
+        game.start();
     }
 }

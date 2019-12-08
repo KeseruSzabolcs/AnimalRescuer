@@ -31,4 +31,11 @@ public class Activities {
         animal.setHappyness(animal.getHappyness()+1);
         System.out.println("Animal happiness level " + animal.getHappyness());
     }
+
+    @Override
+    public String toString() {
+        return "Activities{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

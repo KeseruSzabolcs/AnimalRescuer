@@ -9,37 +9,75 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
     private List<Food> avalibleFood = new ArrayList<>();
-    private Activities[] avaliableActivities = new Activities[2];
+    int foodCount = 2;
+    private Activities[] avaliableActivities = new Activities[3];
 
-    public void start(){
+    public void start() {
         initFood();
-        initFood();
+        System.out.println("Today's foods names are:");
+        listFoods();
+        System.out.println("");
+        initActivities();
+        System.out.println("Today's activities names are");
+        listActivities();
     }
 
-    private void initFood(){
-        int foodCount = 2;
+    //LIST
+    private void initFood() {
 
         System.out.println("Today's foods are: ");
 
-        for(int i=0; i<foodCount; i++){
-            Food food = new Food("X",1.0,1.0,LocalDate.now(),1);
+        for (int i = 0; i < foodCount; i++) {
+            Food food = new Food("X", 1.0, 1.0, LocalDate.now(), 1);
             food.setName("food" + i);
             food.setExpirationDate(randomDate());
-            food.setInStoc((int) Math.round(Math.random()*10));
-            food.setPrice(Math.random()*10);
-            food.setQuantity(Math.random()*10);
+            food.setInStoc((int) Math.round(Math.random() * 10));
+            food.setPrice(Math.random() * 10);
+            food.setQuantity(Math.random() * 10);
             System.out.println(food.toString());
+            avalibleFood.add(food);
         }
     }
 
-    private LocalDate randomDate(){
+    //ARRAY
+    private void initActivities() {
+        for (int i = 0; i < avaliableActivities.length; i++) {
+            Activities activities = new Activities("Y");
+            activities.setName("activitie " + i);
+            System.out.println(activities.toString());
+            avaliableActivities[i] = activities;
+        }
+    }
 
-        Long x = Math.round(Math.random()*10000);
+    private void listFoods() {
+        try {
+            for (int i = 0; i < foodCount; i++) {
+                System.out.println(avalibleFood.get(i).getName());
+            }
+
+        } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+            throw new RuntimeException("Sorry, let's try again");
+        }
+    }
+
+    private void listActivities() {
+        try {
+            for (Activities activities : avaliableActivities) {
+                System.out.println(activities.getName());
+            }
+        } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+            throw new RuntimeException("Sorry, try again :)");
+        }
+    }
+
+    private LocalDate randomDate() {
+
+        Long x = (ThreadLocalRandom.current().nextLong(16243, 17338));
         Long randomYear = LocalDate.now().getYear() + x;
         LocalDate randomDate = LocalDate.ofEpochDay(randomYear);
-        System.out.println(randomYear);
         return randomDate;
     }
+
     public List<Food> getAvalibleFood() {
         return avalibleFood;
     }

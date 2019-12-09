@@ -1,10 +1,12 @@
 package org.FasttrackIT;
 
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
@@ -13,14 +15,19 @@ public class Game {
     private Activities[] avaliableActivities = new Activities[3];
 
     public void start() {
-        initFood();
-        System.out.println("Today's foods names are:");
-        listFoods();
-        System.out.println("");
-        initActivities();
-        System.out.println("Today's activities names are");
-        listActivities();
+//        initFood();
+//        System.out.println("Today's foods names are:");
+//        listFoods();
+//        System.out.println("");
+//        initActivities();
+//        System.out.println("Today's activities names are");
+//        listActivities();
+//        System.out.println("");
+        initAnimal2();
+        initRescuer();
+        nameAnimal();
     }
+
 
     //LIST
     private void initFood() {
@@ -47,6 +54,67 @@ public class Game {
             System.out.println(activities.toString());
             avaliableActivities[i] = activities;
         }
+    }
+
+    private void initAnimal() {
+        Animal animal = new Animal("X", 10, 10, 10, 10, "food", "Ball game");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("You can only choose a Dog or a Cat, or else...:)");
+        String x = scanner.nextLine();
+        if (x.equals("Dog") || x.equals("dog")) {
+            animal.setName("Dog");
+            animal.setPreferredGame("Ball Game");
+        } else if (x.equals("Cat") || x.equals("cat")) {
+            animal.setName("Cat");
+            animal.setPreferredGame("It doesn't like to play");
+        } else {
+            System.out.println("I did warn you...");
+            System.exit(1);
+        }
+        animal.setPreferredFood(animal.getName() + " Food");
+        animal.setAge((int) Math.random() * 10 + 1);
+        System.out.println(animal.toString());
+    }
+
+    private void initAnimal2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("You can only choose a Wild Animal or a Fictional Animal, or else...:)");
+        String x = scanner.nextLine();
+        if (x.equals("Wild") || x.equals("wild") || x.equals("Wild Animal") || x.equals("wild animal")) {
+            Animal animal = new WildAnimal("Lord", 2, 10, 10, 10, "Wolf Food", "Stick game", true);
+            System.out.println(animal.toString());
+        } else if (x.equals("Fictional") || x.equals("fictional") || x.equals("Fictional Animal") || x.equals("fictional animal")) {
+            Animal animal = new FictionalAnimal("Nemo", 2, 10, 10, 10, "Imaginary Food", "Imaginary game", false);
+            System.out.println(animal.toString());
+        } else {
+            System.out.println("I did warn you...");
+            System.exit(1);
+        }
+    }
+
+    private void initRescuer() {
+        Adaptor rescuer = new Adaptor("John", (Math.random() * 10 + 1));
+        System.out.println("What is your name?");
+        Scanner scanner = new Scanner(System.in);
+        String x = scanner.nextLine();
+        //searches for number
+        if ((x.matches(".*\\d.*"))) {
+            System.out.println("What are you, a robot?!\nLet's try again");
+            initRescuer();
+        } else if (x.isEmpty()){
+            System.out.println("You entered a blank value\nLet's try again");
+            initRescuer();
+        } else {
+            rescuer.setName(x);
+            System.out.println(rescuer.getName() + " has: " + rescuer.getMoneyAvaliable() + " money available");
+        }
+    }
+
+
+    private void nameAnimal(){
+        System.out.println("What is the animals name");
+        Scanner scanner = new Scanner(System.in);
+        String x = scanner.nextLine();
     }
 
     private void listFoods() {
@@ -94,3 +162,5 @@ public class Game {
         this.avaliableActivities = avaliableActivities;
     }
 }
+
+//todo În clasa Game, creați o nouă metodă private void nameAnimal prin care să îi solicitați utilizatorului să îi dea un nume animalului salvat. Citiți datele introduse de utilizator folosind clasa Scanner și stocați numele introdus în proprietatea name a obiectului animal din clasa Game.

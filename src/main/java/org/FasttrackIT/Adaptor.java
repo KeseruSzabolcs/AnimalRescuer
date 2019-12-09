@@ -49,4 +49,12 @@ public class Adaptor {
     public void print() {
         System.out.println(getName());
     }
+
+    @Override
+    public String toString() {
+        return "Adaptor{" +
+                "name='" + name + '\'' +
+                ", moneyAvaliable=" + moneyAvaliable +
+                '}';
+    }
 }

@@ -81,4 +81,17 @@ public class Animal {
     public void print() {
         System.out.println(getName());
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", health=" + health +
+                ", hunger=" + hunger +
+                ", happyness=" + happyness +
+                ", preferredFood='" + preferredFood + '\'' +
+                ", preferredGame='" + preferredGame + '\'' +
+                '}';
+    }
 }

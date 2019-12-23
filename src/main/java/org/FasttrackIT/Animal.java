@@ -77,6 +77,8 @@ public class Animal {
         this.preferredFood = preferredFood;
         this.preferredGame = preferredGame;
     }
+    public Animal(){
+    }
 
     public void print() {
         System.out.println(getName());

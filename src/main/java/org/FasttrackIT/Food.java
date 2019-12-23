@@ -16,6 +16,8 @@ public class Food {
         this.expirationDate = expirationDate;
         this.inStoc = inStoc;
     }
+    public Food(){
+    }
 
     public String getName() {
         return name;

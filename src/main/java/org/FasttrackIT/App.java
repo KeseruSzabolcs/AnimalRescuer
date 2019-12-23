@@ -1,8 +1,6 @@
 package org.FasttrackIT;
 
 
-import java.time.LocalDate;
-
 /**
  * Hello world!
  */
@@ -14,7 +12,7 @@ public class App {
 //        Activities activities3 = new Activities(" game");
 //        //activities.name = "Ball game";
 //
-//        Animal animal1 = new Animal("Leno", 10, 10, 10, 10, "Dog Food", "Ball Game");
+     //   Animal animal1 = new Animal("Leno", 10, 10, 10, 10, "food0", "Ball Game");
 //        //animal1.setName("Leno");
 ////        animal1.age = 14;
 ////        animal1.hunger = 10;

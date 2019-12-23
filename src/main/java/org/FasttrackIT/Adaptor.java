@@ -26,6 +26,9 @@ public class Adaptor {
           this.moneyAvaliable = moneyAvaliable;
      }
 
+     public Adaptor(){
+     }
+
      public void feed(Food food, Animal animal){
           System.out.println(getName() + " just gave " + food.getName() + " to " + animal.getName());
           if(animal.getPreferredFood().equals(food.getName())){

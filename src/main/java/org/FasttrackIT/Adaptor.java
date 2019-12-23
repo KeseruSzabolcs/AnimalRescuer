@@ -32,11 +32,11 @@ public class Adaptor {
      public void feed(Food food, Animal animal){
           System.out.println(getName() + " just gave " + food.getName() + " to " + animal.getName());
           if(animal.getPreferredFood().equals(food.getName())){
-              animal.setHappyness(animal.getHappyness()+1);
+              animal.setHunger(animal.getHunger()+1);
           }else {
-              animal.setHappyness(animal.getHappyness() - 1);
+              animal.setHunger(animal.getHunger() - 1);
           }
-          System.out.println("Animal happyness level " + animal.getHappyness());
+          System.out.println("Animal hunger level " + animal.getHunger());
 
      }
 
@@ -45,9 +45,9 @@ public class Adaptor {
           if(animal.getPreferredGame().equals(activities.getName())){
               animal.setHappyness(animal.getHappyness()+2);
           }else {
-              animal.setHappyness(animal.getHappyness() + 1);
+              animal.setHappyness(animal.getHappyness() - 5);
           }
-          System.out.println("Animal happyness level " + animal.getHappyness());
+          System.out.println("Animal happiness level " + animal.getHappyness());
      }
     public void print() {
         System.out.println(getName());

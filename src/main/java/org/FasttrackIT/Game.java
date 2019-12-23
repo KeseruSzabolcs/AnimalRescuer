@@ -11,13 +11,16 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
     private List<Food> avalibleFood = new ArrayList<>();
-    private Activities[] avaliableActivities = new Activities[3];
+    private int activitieCount = 3;
+    private Activities[] avaliableActivities = new Activities[activitieCount];
     private int foodCount;
+    private int roundCount = 0;
 
-    Animal animal = new Animal("Leno", 10, 10, 10, 10, "food0", "Ball Game");
+    Animal animal = new Animal("Leno", 10, 10, 10, 10, "food0", "activity 0");
     Adaptor rescuer = new Adaptor("John", 29.4);
     Food food = new Food("Dog Food", 6.0, 10.0, LocalDate.of(2019, 07, 12), 10);
     Medic medic = new Medic("Dr Strange", "Vet");
+    Activities activities = new Activities("Ball Game");
 
 
     public void start() {
@@ -35,8 +38,23 @@ public class Game {
         initFood();
         listFoods(foodCount);
         requireFeeding(foodCount);
-    }
+        initActivities();
+        listActivities();
+        requireActivities(activitieCount);
 
+        while(animal.getHappyness()>0 && animal.getHunger()>0){
+            listFoods(foodCount);
+            requireFeeding(foodCount);
+            listActivities();
+            requireActivities(activitieCount);
+            roundCount++;
+            if(roundCount >=5){
+                System.out.println("You have WON!!!");
+                System.exit(1);
+            }
+        }
+        System.out.println("Sorry but your pet died :(\n GAME OVER!!!");
+    }
 
     //LIST
     private void initFood() {
@@ -60,14 +78,14 @@ public class Game {
             food.setInStoc((int) Math.round(Math.random() * 10));
             food.setPrice(Math.random() * 10);
             food.setQuantity(Math.random() * 10);
-            //System.out.println(food.toString());
+            System.out.println("Today's food choices, and specs are:\n" + food.toString());
             avalibleFood.add(food);
         }
     }
 
     private void listFoods(int foodCount) {
         if (foodCount != 0) {
-            System.out.println("Today's foods are: ");
+            System.out.println("Today's foods names are: ");
         }
         for (int i = 0; i < foodCount; i++) {
             System.out.println(avalibleFood.get(i).getName());
@@ -76,6 +94,7 @@ public class Game {
 
     private void requireFeeding(int foodCount) {
         String foodName = null;
+        boolean ditItFindFood = false;
         try {
             System.out.println("What food would you like to feed your pet?");
             Scanner scanner = new Scanner(System.in);
@@ -90,7 +109,13 @@ public class Game {
                 animal.setName(animal.getName());
                 rescuer.setName(rescuer.getName());
                 rescuer.feed(food, animal);
+                ditItFindFood = true;
             }
+        }
+        if (ditItFindFood == false) {
+            listFoods(foodCount);
+            System.out.println("Sorry, you can only select from the list above: ");
+            requireFeeding(foodCount);
         }
     }
 
@@ -145,8 +170,43 @@ public class Game {
         }
     }
 
+    //ARRAY
+    private void initActivities() {
+        for (int i = 0; i < avaliableActivities.length; i++) {
+            Activities activities = new Activities("Y");
+            activities.setName("activity " + i);
+            //System.out.println(activities.toString());
+            avaliableActivities[i] = activities;
+        }
+    }
+
+    private void requireActivities(int activitieCount) {
+        String activityName = null;
+        boolean ditItFindActivity = false;
+        try {
+            System.out.println("What game would you like to play with your pet?");
+            Scanner scanner = new Scanner(System.in);
+            activityName = scanner.nextLine();
+        } catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
+            System.out.println("Sorry, you entered an invalid activity, please try again");
+            requireActivities(activitieCount);
+        }
+        for (int i = 0; i < activitieCount; i++) {
+            if (avaliableActivities[i].getName().equals(activityName)) {
+                activities.setName(activityName);
+                rescuer.acctivity(activities, animal);
+                ditItFindActivity = true;
+            }
+        }
+        if (ditItFindActivity == false) {
+            listActivities();
+            System.out.println("Sorry, you can only select from the list above: ");
+            requireActivities(activitieCount);
+        }
+    }
 
     private void listActivities() {
+        System.out.println("What would you like to do?");
         try {
             for (Activities activities : avaliableActivities) {
                 System.out.println(activities.getName());
@@ -156,15 +216,6 @@ public class Game {
         }
     }
 
-    //ARRAY
-    private void initActivities() {
-        for (int i = 0; i < avaliableActivities.length; i++) {
-            Activities activities = new Activities("Y");
-            activities.setName("activitie " + i);
-            System.out.println(activities.toString());
-            avaliableActivities[i] = activities;
-        }
-    }
 
     private LocalDate randomDate() {
 

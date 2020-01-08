@@ -16,12 +16,13 @@ public class Game {
     private int foodCount;
     private int roundCount = 0;
 
-    Animal animal = new Animal("Leno", 10, 10, 10, 10, "food0", "activity 0");
+    Animal animal = new Animal("Leno", 10, 10, 10, 10, "pedigree", "ball game");
     Adaptor rescuer = new Adaptor("John", 29.4);
     Food food = new Food("Dog Food", 6.0, 10.0, LocalDate.of(2019, 07, 12), 10);
     Medic medic = new Medic("Dr Strange", "Vet");
     Activities activities = new Activities("Ball Game");
-
+    String[] FoodNames = {"pedigree", "kitkat", "whischas", "chuppy", "crunch" };
+    String[] ActivityNames = {"ball game", "stick game", "sit"};
 
     public void start() {
 //        initFood();
@@ -41,6 +42,7 @@ public class Game {
         initActivities();
         listActivities();
         requireActivities(activitieCount);
+        System.out.println("There are 5 rounds left");
 
         while(animal.getHappyness()>0 && animal.getHunger()>0){
             listFoods(foodCount);
@@ -48,6 +50,7 @@ public class Game {
             listActivities();
             requireActivities(activitieCount);
             roundCount++;
+            System.out.println("There are " + (5-roundCount) +" rounds left");
             if(roundCount >=5){
                 System.out.println("You have WON!!!");
                 System.exit(1);
@@ -58,7 +61,7 @@ public class Game {
 
     //LIST
     private void initFood() {
-        System.out.println("How many food picks would you like to have?");
+        System.out.println("How many food picks would you like to have? (Max 5)");
         Scanner scanner = new Scanner(System.in);
         try {
             foodCount = scanner.nextInt();
@@ -67,18 +70,22 @@ public class Game {
                 initFood();
             }
         } catch (NullPointerException | ArrayIndexOutOfBoundsException | InputMismatchException e) {
-            throw new RuntimeException("I'm so sorry, you must enter a whole number");
-            //System.out.println("I'm so sorry, you must enter a whole number");
-            // System.exit(1);
+            System.out.println("Sorry, you must enter a whole number");
+            initFood();
+        }
+        if (foodCount > 5){
+            System.out.println("Max food count 5");
+            initFood();
         }
         for (int i = 0; i < foodCount; i++) {
             Food food = new Food("X", 1.0, 1.0, LocalDate.now(), 1);
-            food.setName("food" + i);
+            //food.setName("food" + i);
+            food.setName(FoodNames[i]);
             food.setExpirationDate(randomDate());
             food.setInStoc((int) Math.round(Math.random() * 10));
             food.setPrice(Math.random() * 10);
             food.setQuantity(Math.random() * 10);
-            System.out.println("Today's food choices, and specs are:\n" + food.toString());
+            //System.out.println("Today's food choices, and specs are:\n" + food.toString());
             avalibleFood.add(food);
         }
     }
@@ -98,7 +105,7 @@ public class Game {
         try {
             System.out.println("What food would you like to feed your pet?");
             Scanner scanner = new Scanner(System.in);
-            foodName = scanner.nextLine();
+            foodName = scanner.nextLine().toLowerCase();
         } catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
             System.out.println("Sorry, you entered an invalid food, please try again");
             requireFeeding(foodCount);
@@ -122,7 +129,7 @@ public class Game {
     private void initAnimal() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You can only choose a Wild Animal or a Fictional Animal, or else...:)");
-        String x = scanner.nextLine();
+        String x = scanner.nextLine().toLowerCase();
         if (x.equals("Wild") || x.equals("wild") || x.equals("Wild Animal") || x.equals("wild animal")) {
             Animal animal = new WildAnimal("Lord", 2, 10, 10, 10, "Wolf Food", "Stick game", true);
             //System.out.println(animal.toString());
@@ -174,7 +181,8 @@ public class Game {
     private void initActivities() {
         for (int i = 0; i < avaliableActivities.length; i++) {
             Activities activities = new Activities("Y");
-            activities.setName("activity " + i);
+            //activities.setName("activity " + i);
+            activities.setName(ActivityNames[i]);
             //System.out.println(activities.toString());
             avaliableActivities[i] = activities;
         }
@@ -186,7 +194,7 @@ public class Game {
         try {
             System.out.println("What game would you like to play with your pet?");
             Scanner scanner = new Scanner(System.in);
-            activityName = scanner.nextLine();
+            activityName = scanner.nextLine().toLowerCase();
         } catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
             System.out.println("Sorry, you entered an invalid activity, please try again");
             requireActivities(activitieCount);

@@ -55,9 +55,8 @@ public class Adaptor {
 
     @Override
     public String toString() {
-        return "Adaptor{" +
-                "name='" + name + '\'' +
-                ", moneyAvaliable=" + moneyAvaliable +
-                '}';
+        return "The Adaptors" +
+                " name is " + name +
+                " and he has " + moneyAvaliable + " available money";
     }
 }

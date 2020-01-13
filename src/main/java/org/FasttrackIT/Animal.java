@@ -86,14 +86,12 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", health=" + health +
-                ", hunger=" + hunger +
-                ", happyness=" + happyness +
-                ", preferredFood='" + preferredFood + '\'' +
-                ", preferredGame='" + preferredGame + '\'' +
-                '}';
+        return "The animals name is " + name +
+                ", he is " + age +
+                " years old, his health status is " + health +
+                "/10, his hunger level is " + hunger +
+                "/10," + '\n' + "his happiness level is " + happyness +
+                "/10, his preferred food is " + preferredFood +
+                ", and his preferred game is " + preferredGame;
     }
 }
